@@ -1,0 +1,62 @@
+CS440 / CS640 Spring 2014: Artificial Intelligence
+Assignment 1
+Due Wednesday January 29th, at classtime via gsubmit
+
+Part I: Problems: 25 points
+3.14a-e (2 pts each)
+3.23 (10 points)
+Answer the second part of 3.29; i.e. construct an admissible heuristic that is not consistent. (5 points)
+
+Part II Code: 75 points
+
+You are going to test the order-of-growth calculations from lecture 1
+for breadth-first search, depth-first search, and iterative deepening search.
+To do so, you will complete the provided hw1.py file.  This program
+uses the textbook's implementations of BFS, DFS, and IDS to search
+a binary tree for a goal node.  It tracks the time spent by each algorithm,
+and the memory used; all you have to do is
+
+a) implement the binary tree as a search problem
+b) modify the search algorithms to return the memory used instead of the
+   actual search result.
+
+The binary tree search problem you will implement is as follows: each 
+state is labeled by a number, starting at 1.  For example, a tree of depth
+3 would look like this:
+
+   1
+  / \
+ 2   3
+/ \ / \
+4 5 6 7
+
+Search always begins at the root, and the goal is a specific leaf node.  You
+must implement the functions labeled "IMPLEMENT ME" in hw1.py.  You should not
+need to add other code to hw1.py.
+
+To track the memory used by each algorithm, you will modify the search
+algorithms.  Specifically, you will make a tiny modification so that
+- breadth- and depth- first search return the maximum frontier size encountered
+  while searching.
+- iterative deepening search returns the depth at which the solution was found.
+
+You will then run your finished program, producing a csv (comma-separated-value)
+file of results - the average time and memory taken by each algorithm
+over a set of trials and a range of tree depths.  You can run with the default
+values of max_depth and num_trials if you wish, or run longer to get more data,
+e.g.
+
+python hw1.py --num_trials=15 --max_depth=15 > results.csv
+
+You must then graph this results file -- I suggest using a spreadsheet --
+to produce two graphs, one showing the time versus depth for the three
+algorithms, and the other showing memory versus depth.  Hopefully you will
+see the order of growth you expect!
+
+WHAT TO TURN IN
+You should turn in six files:
+  problems.pdf - Your solutions to the problems in part 1
+  hw1.py - Your completed version of the hw1.py file
+  search.py - Your (slightly) modified search algorithms file
+  results.csv - The output of your code
+  time, memory - Image files containing the charts above, based on results.csv
